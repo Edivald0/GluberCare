@@ -1,0 +1,62 @@
+/*=================================
+    USUARIO
+===================================*/
+/*
+      index usuario
+*/
+body, html{
+	background-color: #ccc;	
+}
+.btns-user{
+  border-right: 1px solid #666;
+  height: 100%;
+  padding: 10px 20px;
+  background-color: red;
+}
+.btns-user button{
+	display: block;
+	border-top-right-radius: 15px;
+	border-bottom-right-radius: 15px;
+	border: none;
+	background-color: rgb(81,184,233);
+	color: #fff;
+	margin: 10px 0;
+}
+.btns-user button:hover{
+	background-color: #fff;
+	color: rgb(81,184,233);	
+}
+.btns-user-mobile{
+	display: none;
+}
+
+
+.datos-personales{
+	background-color: blue;
+}
+.btn-datos {
+    display: block;
+    border-radius: 15px;
+    border: none;
+    background-color: rgb(81,184,233);
+    color: #fff;
+    margin: 10px 0;
+    cursor: none;
+    width: 40%;
+}
+.btn-datos a{
+	text-decoration: none;
+
+}
+
+
+
+
+@media screen and (max-width: 767px) {
+	.btns-user{
+		display: none;
+	}
+	.btns-user-mobile{
+		display: block;
+	}
+}
