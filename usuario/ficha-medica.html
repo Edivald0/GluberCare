@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Ficha Medica | GluberCare</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta name="author" content="" />
+	  	<!-- Facebook and Twitter integration -->
+		<meta property="og:title" content=""/>
+		<meta property="og:image" content=""/>
+		<meta property="og:url" content=""/>
+		<meta property="og:site_name" content=""/>
+		<meta property="og:description" content=""/>
+		<meta name="twitter:title" content="" />
+		<meta name="twitter:image" content="" />
+		<meta name="twitter:url" content="" />
+		<meta name="twitter:card" content="" />
+
+		<!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400, 900" rel="stylesheet"> -->
+		
+		<!-- Animate.css -->
+		<link rel="stylesheet" href="../css/animate.css">
+		<!-- Icomoon Icon Fonts-->
+		<link rel="stylesheet" href="../css/icomoon.css">
+		<!-- Themify Icons-->
+		<link rel="stylesheet" href="../css/themify-icons.css">
+		<!-- Bootstrap  -->
+		<link rel="stylesheet" href="../css/bootstrap.css">
+		<!-- Magnific Popup -->
+		<link rel="stylesheet" href="../css/magnific-popup.css">
+		<!-- Owl Carousel  -->
+		<link rel="stylesheet" href="../css/owl.carousel.min.css">
+		<link rel="stylesheet" href="../css/owl.theme.default.min.css">
+		<!-- Flexslider -->
+		<link rel="stylesheet" href="../css/flexslider.css">
+		<!-- Theme style  -->
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" href="../css/style.css">
+
+		<link rel="stylesheet" type="text/css" href="../css/font-awesome/css/font-awesome.min.css">
+		<!-- Modernizr JS -->
+		<script src="../js/modernizr-2.6.2.min.js"></script>
+		<!-- FOR IE9 below -->
+		<!--[if lt IE 9]>
+		<script src="js/respond.min.js"></script>
+		<![endif]-->
+
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111665725-3"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-111665725-3');
+		</script>
+	</head>
+<body>
+	<div id="page page-2">
+		<!-- MAIN MENU -->
+		<nav class="gtco-nav" role="navigation">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-2 col-xs-12">
+						<!--div id="gtco-logo"><a href="index.html">Just<em>ice</em></a></div-->
+						<div id="gtco-logo" class="logo-home">
+							<a href="http://gluber.care">
+								<img src="../images/gluber_care-01.png">
+							</a>
+						</div>
+					</div>
+					<div class="col-xs-10 text-right menu-1 main-nav">
+						
+						<ul>
+							<!--li class=""><a href="../index.html" class="external">Inicio</a></li-->
+							<!--li><a href="http://gluber.care#about-2" class="external">Nosotros</a></li-->
+						</ul>
+						
+					</div>
+				</div>	
+			</div>
+		</nav>
+
+		<section class="row-fluid main-section">
+			<div class="col-xs-12 col-md-2 btns-user">
+				<a href="index.php"><button class="btn-user">USUARIO</button></a>
+				<button class="btn-user">DATOS ADICIONALES</button>
+				<a href="ficha-medica.html"><button class="btn-user">FICHA MEDICA</button><br></a>
+				<a href="salir.php"><button class="btn-user">Salir</button></a>
+				
+			</div>
+		</section>
+		
+		<section class="row-fluid">
+			<form name="form-medical" action="medical.php" method="POST">
+			<div class="col-xs-12 col-md-10">
+				<div class="row-fluid">
+					<div class="col-xs-12 col-md-10">
+						<center><h1>Ficha Medica</h1></center>
+					</div>
+				</div>
+				<!-- Cuestion one -->
+				<div class="row-fluid">
+					<div class="col-xs-12">
+						<p>
+							¿Tiene algun familiar en primera linea (papá. Mamá, hermanos, hijos que padezca alguna de las siguientes enfermedades?
+						</p>
+					</div>
+					<div class="col-xs-12">						
+			                <label>Diabetes Mellitus Tipo 1, Tipo 2
+			                	<input type='checkbox' name="one[]"* value="Diabetes Mellitus Tipo 1, Tipo 2">
+			                </label>
+			                <br>
+			                <label>Problemas cardiacos o Hipertensión
+			                	<input type='checkbox' name="one[]"* value="Problemas cardiacos o Hipertensión">
+			                </label>
+			                <br>
+			                <label>Cancer
+			                	<input type='checkbox' name="one[]"* value="Cancer">
+			                </label>
+			                <br>
+			                <label>Hipotiroidismo
+			                	<input type='checkbox' name="one[]"* value="Hipotiroidismo">
+			                </label>
+			                <br>
+			                <label>Hipertiroidismo
+			                	<input type='checkbox' name="one[]"* value="Hipertiroidismo">
+			                </label>
+			                <br>
+			                <label>Obesidad o sobrepeso
+			                	<input type='checkbox' name="one[]"* value="Obesidad o sobrepeso">
+			                </label>
+					</div>
+				</div>
+				<!-- Cuestion two -->
+				<div class="row-fluid">
+					<div class="col-xs-12">
+						<p><br>
+							¿Tiene algun familiar en primera linea (papá. Mamá, hermanos, hijos que padezca alguna de las siguientes enfermedades?
+						</p>
+					</div>
+					<div class="col-xs-12">
+			                <input type='checkbox' name="mes[]"* value="1">Enero 
+			                <input type='checkbox' name="mes[]"* value="2">Febrero 
+			                <input type='checkbox' name="mes[]"* value="3">Marzo 
+			                <input type='checkbox' name="mes[]"* value="4">Abril 
+					</div-->
+				</div>
+				<!-- Cuestion three -->
+
+
+
+			</div>
+			<div class="row-fluid">
+				<div class="col-xs-12 text-center">
+					<input type="submit" name="submit-medical" value="Enviar">
+				</div>
+			</div>
+			</form>
+		</section>
+
+		
+		<!--p><a href="?op=foto">Foto</a></p>
+		<p><a href="?op=pass">Password</a></p>		
+		<p><a href="../salir.php">Salir</a></p-->
+
+	</div>
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+	</div>
+
+	<!-- jQuery -->
+	<script src="../js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="../js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="../js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="../js/jquery.waypoints.min.js"></script>
+	<!-- Stellar -->
+	<script src="../js/jquery.stellar.min.js"></script>
+	<!-- Magnific Popup -->
+	<script src="../js/jquery.magnific-popup.min.js"></script>
+	<script src="../js/magnific-popup-options.js"></script>
+	<!-- Main -->
+	<script src="../js/main.js"></script>
+
+	<script src="../js/slide.js"></script>
+	<script>
+    		function efectos (){
+			//Activar botom 5 MOSTRAR Y APARECER con velocidad
+				$('#boton5').on('click', function(){
+					$('#parrafo1').toggle(500)
+				})
+			}
+			$(document).ready(efectos)
+    	</script>
+</body>
+</html>

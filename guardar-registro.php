@@ -8,6 +8,9 @@
 
 		if (isset($_POST['envio'])) {
 			$conexion->query("INSERT INTO registro (name_user, last_name, user_user, mail_user, pass_user) VALUES ('$name', '$last_name', '$user', '$mail', '$pass')");
+				//header("location: index.html");
+
+			$conexion->query("INSERT INTO medical (user_medical) VALUES ('$user')");
 				header("location: index.html");
 		}
 			

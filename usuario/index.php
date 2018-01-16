@@ -61,8 +61,11 @@
 </head>
 <body>
 	<?php
-		session_start();
+	//session_start();
+		include ("funciones.php");
+		
 		include ("../php/conexion.php");
+		session_start();
 		//USUARIO /index.php
 		if (isset($_SESSION["estado"]) && $_SESSION["estado"] == 0) {
 			include "cambiar_password.php";
@@ -71,25 +74,88 @@
 			include "../funciones.php";
 			$foto = nombre_foto($_SESSION["usuario"]);
 		}
-		//formulario para cambiar la foto del susuario
-		function foto_usuario(){
-			if (isset($_GET["op"])&& $_GET["op"]=="foto") {
-				echo "<form action='subir_foto.php' enctype='multipart/form-data' method='post'>
-						<section class='row-fluid'>
-				       		<div class='col-xs-10 col-md-6 btn-foto-1'><input type='file' name='foto'></div>
-			       			<div class='col-xs-10 col-md-6 btn-foto'><input type='submit' value='Subir'/></div>
-			       		</section
-			       	</form>
-			       	<p class='btn-foto-cerrar'><a href='index.php'><i class='fa fa-times' aria-hidden='true'></i></a>
-			       	";
-			}
-			//include "subir_foto.php";
-		}
 		//si el alumno quiere cambiar su pasword o es la primera vez 
 		if (isset($_GET["op"])&& $_GET["op"]=="pass") {
 			include'cambiar_password.php';
 		}
+		//formulario para cambiar la foto del susuario
+		function foto(){
+			if (isset($_GET["op"])&& $_GET["op"]=="foto") {
+				echo "<form action='edit_foto.php' enctype='multipart/form-data' method='post'>
+						<section class='row-fluid'>
+				       		<div class='col-xs-10 col-md-6 btn-foto-1'><input type='file' name='foto' required=''></div>
+			       			<div class='col-xs-10 col-md-6 btn-foto'><input type='submit' value='Subir'/></div>
+			       		</section
+			       	</form>
+			       	<p class='btn-foto-cerrar'>
+			       		<a href='index.php'>
+			       			<i class='fa fa-times' aria-hidden='true'></i>
+			       		</a>
+			       	</p>
+			       	";
+			}
+		}
 
+		function birthdate(){
+			if (isset($_GET["op"])&& $_GET["op"]=="birthdate") {
+				echo "<form action='edit_datos.php' method='post'>
+						<section class='row-fluid'>
+				       		<div class='col-xs-10 btn-edit'>
+				       			<input type='date' name='birthdate' required=''>
+				       		</div>
+			       			<div class='col-xs-10 btn-edit-2'>
+			       				<input type='submit' value='Guardar'/>
+			       			</div>
+			       		</section
+			       	</form>
+			       	<p class='btn-edit-cerrar'>
+			       		<a href='index.php'>
+			       			<i class='fa fa-times' aria-hidden='true'></i>
+			       		</a>
+			       	</p>
+			       	";
+			}
+		}
+		function postal(){
+			if (isset($_GET["op"])&& $_GET["op"]=="postal-user") {
+				echo "<form action='edit_datos.php' method='post'>
+						<section class='row-fluid'>
+				       		<div class='col-xs-10 btn-edit'>
+				       			<input type='text' name='postal' required=''>
+				       		</div>
+			       			<div class='col-xs-10 btn-edit-2'>
+			       				<input type='submit' value='Guardar'/>
+			       			</div>
+			       		</section
+			       	</form>
+			       	<p class='btn-edit-cerrar'>
+			       		<a href='index.php'>
+			       			<i class='fa fa-times' aria-hidden='true'></i>
+			       		</a>
+			       	</p>
+			       	";
+			}
+		}
+		/*function weight(){
+			if (isset($_GET["op"])&& $_GET["op"]=="weight") {
+				echo "<form action='edit_datos.php' method='post'>
+						<section class='row-fluid'>
+				       		<div class='col-xs-10 btn-edit'>
+				       			<input type='number' name='weight' required=''>
+				       		</div>
+			       			<div class='col-xs-10 btn-edit-2'>
+			       				<input type='submit' value='Guardar'/>
+			       			</div>
+			       		</section
+			       	</form>
+			       	<p class='btn-edit-cerrar'>
+			       		<a href='index.php'>
+			       			<i class='fa fa-times' aria-hidden='true'></i>
+			       		</a>
+			       	</p>
+			       	";
+			}
+		}*/
 		
 	?>	
 	<!--div class="gtco-loader"></div-->
@@ -122,24 +188,28 @@
 			<div class="col-xs-12 col-md-2 btns-user">
 				<button class="btn-user">USUARIO</button>
 				<button class="btn-user">DATOS ADICIONALES</button>
-				<button class="btn-user">FICHA MEDICA</button><br>
+				<a href="ficha-medica.html"><button class="btn-user">FICHA MEDICA</button><br></a>
 				<a href="salir.php"><button class="btn-user">Salir</button></a>
 				
 			</div>
 		</section>
 		
 		<section class="row-fluid">
-			<div class="col-xs-12 col-md-2 image-user">
-				<img src="img-genero.png" class="img-responsive">
-				<div class="row-fluid">
-					<div class="col-xs-12 col-md-6">
-						<button class="btn-genero-left">Masculino</button>
-					</div>
-					<div class="col-xs-12 col-md-6">
-						<button class="btn-genero-right">Femenino</button>
+			<form name="input" action="genero.php" method="post">
+				<div class="col-xs-12 col-md-2 image-user">
+					<?php print_genero(); ?>
+					<div class="row-fluid">
+						<div class="col-xs-12 col-md-6 no-padding">
+							<input type="radio" name="sex" value="1" onchange="this.form.submit()"/>
+							<label class="btn-genero-left">Maculino</label>
+						</div>
+						<div class="col-xs-12 col-md-6 no-padding">
+							<input type="radio" name="sex" value="2" onchange="this.form.submit()" />
+							<label class="btn-genero-right">Femenino</label> 
+						</div>
 					</div>
 				</div>
-			</div>
+			</form>
 		</section>
 
 		<section class="row-fluid">
@@ -159,13 +229,14 @@
 				</div>
 				<div class="row-fluid">
 					<div class="col-xs-12 text-center img-perfil">
-						<img src="../img-usuarios/usuario.jpg<?php //echo $imagen;  ?> "/>
+						<!--img src="../img-usuarios/usuario.jpg<?php //echo $imagen;  ?> "/-->
+						<img src="../img-usuarios/<?php print_foto();  ?> "/>
 						<a href="?op=foto"><button><i class="fa fa-pencil" aria-hidden="true"></i></button></a>
 					</div>
 				</div>
 				<div class="row-fluid">
 					<div class="col-xs-12 col-md-12 text-center">
-						<?php foto_usuario(); ?>
+						<?php foto(); ?>
 					</div>
 				</div>
 				<div class="row-fluid">
@@ -175,8 +246,6 @@
 						</div>
 					</div>
 				</div>
-
-
 				<div class="row-fluid">
 					<div class="col-xs-12 col-md-6">
 						<div class="row-fluid">
@@ -184,14 +253,18 @@
 								<div class="text-center">Fecha de nacimiento</div>
 								<div class="print-information text-center">
 									<?php 
-										echo $_SESSION["fecha_nacimiento"];
-									?>
+										 print_birthdate();
+									 ?>
 								</div>
 							</div>
-							<div class="col-xs-2">
-								<i class="fa fa-pencil" aria-hidden="true"></i>
+							<div class="col-xs-2 btn-edit-date">
+								<a href="?op=birthdate"><button><i class="fa fa-pencil" aria-hidden="true"></i></button></a>
+							</div>							
+							<div class="row-fluid">
+								<div class="col-xs-12 col-md-12 text-center">
+									<?php birthdate(); ?>
+								</div>
 							</div>
-								
 						</div>
 					</div>	
 					
@@ -200,21 +273,22 @@
 							<div class="col-xs-10">
 								<div class="text-center">Codigo Postal</div>
 								<div class="print-information text-center">
-
-									<?php
-										echo $_SESSION["codigo_postal"];
-									?>
+									<?php print_postal_user(); ?>
 								</div>
 							</div>
-							<div class="col-xs-2">
-								<i class="fa fa-pencil" aria-hidden="true"></i>
+							<div class="col-xs-2 btn-edit-date">
+								<a href="?op=postal-user"><button><i class="fa fa-pencil" aria-hidden="true"></i></button></a>
+							</div>
+							<div class="row-fluid">
+								<div class="col-xs-12 col-md-12 text-center">
+									<?php  postal(); ?>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-	
-	
-				<div class="row-fluid">
+
+				<<div class="row-fluid">
 					<div class="col-xs-12 col-md-6">
 						<div class="row-fluid">
 							<div class="col-xs-10">
@@ -225,10 +299,14 @@
 									?>
 								</div>
 							</div>
-							<div class="col-xs-2">
-								<i class="fa fa-pencil" aria-hidden="true"></i>
-							</div>
-								
+							<!--div class="col-xs-2 btn-edit-date">
+								<a href="?op=weight"><button><i class="fa fa-pencil" aria-hidden="true"></i></button></a>
+							</div-->
+							<!--div class="row-fluid">
+								<div class="col-xs-12 col-md-12 text-center">
+									<?php  //weight(); ?>
+								</div>
+							</div-->	
 						</div>
 					</div>	
 					
@@ -243,9 +321,9 @@
 									?>
 								</div>
 							</div>
-							<div class="col-xs-2">
+							<!--div class="col-xs-2">
 								<i class="fa fa-pencil" aria-hidden="true"></i>
-							</div>
+							</div-->
 						</div>
 					</div>
 				</div>
@@ -289,7 +367,3 @@
     	</script>
 </body>
 </html>
-
-
-
-
